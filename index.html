@@ -47,9 +47,47 @@
         <i data-lucide="phone"></i>
         <span>858 83 14 38</span>
       </a>
-
+      <button class="lam-nav-toggle" id="lamMenuToggle" aria-label="Abrir menú">
+        <i data-lucide="menu" id="toggleIcon"></i>
+      </button>
     </div>
   </header>
+
+  <!-- MENÚ MÓVIL Y TABLET (DRAWER BRUTALISTA) -->
+  <div class="lam-mobile-nav-overlay" id="lamMobileNavOverlay"></div>
+  <aside class="lam-mobile-nav" id="lamMobileNav">
+    <div class="lam-mobile-nav-header">
+      <div style="display: flex; align-items: center; gap: 0.8rem;">
+        <img src="ASSETS/logo_take_away.jpg" alt="HALO" class="lam-nav-logo-img">
+        <span style="font-family: var(--font-logo); font-size: 1.3rem; color: #fff;">HALO™</span>
+      </div>
+      <button class="lam-mobile-nav-close" id="lamMobileNavClose" aria-label="Cerrar menú">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <ul class="lam-mobile-nav-links">
+      <li><a href="#carrusel" class="lam-mobile-nav-link">Burgers</a></li>
+      <li><a href="#carta" class="lam-mobile-nav-link">La Carta</a></li>
+      <li><a href="#carnes" class="lam-mobile-nav-link">Carnes</a></li>
+      <li><a href="#alitas" class="lam-mobile-nav-link">Alitas</a></li>
+      <li><a href="#salsas" class="lam-mobile-nav-link">Salsas</a></li>
+      <li><a href="#local" class="lam-mobile-nav-link">El Local</a></li>
+      <li><a href="#contacto" class="lam-mobile-nav-link">Contacto</a></li>
+    </ul>
+    <div class="lam-mobile-nav-footer">
+      <a href="tel:858831438" class="lam-btn" style="width: 100%; padding: 0.85rem;">
+        <i data-lucide="phone"></i>
+        <span>Llamar: 858 83 14 38</span>
+      </a>
+      <a href="tel:603727008" class="lam-btn lam-btn-outline" style="width: 100%; color: #fff; border-color: #fff; padding: 0.85rem;">
+        <i data-lucide="phone"></i>
+        <span>Llamar: 603 72 70 08</span>
+      </a>
+      <div class="lam-mobile-nav-info">
+        <p>C/ Santa Brígida, 2 &bull; Maracena</p>
+      </div>
+    </div>
+  </aside>
 
   <!-- HERO SECTION - ESTILO LAM EXACTO -->
   <section class="lam-hero" id="hero">
@@ -71,17 +109,13 @@
       </div>
 
       <div class="lam-hero-cta">
-        <a href="#carta" class="lam-btn lam-btn-outline">
+        <a href="#carta" class="lam-btn">
           <i data-lucide="book-open"></i>
           <span>Ver Carta y Precios</span>
         </a>
         <a href="tel:858831438" class="lam-btn lam-btn-outline">
           <i data-lucide="phone-call"></i>
           <span>Llamar para Pedir</span>
-        </a>
-        <a href="#contacto" class="lam-btn lam-btn-outline">
-          <i data-lucide="map-pin"></i>
-          <span>Ir al Local</span>
         </a>
         <a href="#contacto" class="lam-btn lam-btn-outline">
           <i data-lucide="map-pin"></i>
@@ -162,6 +196,16 @@
             <strong>Calle Santa Brígida, 2 (Maracena)</strong>.
           </p>
         </div>
+      </div>
+
+      <!-- NAVEGACIÓN RÁPIDA DE LA CARTA -->
+      <div class="lam-carta-quick-nav">
+        <a href="#carta-burgers" class="lam-quick-pill">Burgers</a>
+        <a href="#carta-bocadillos" class="lam-quick-pill">Bocadillos</a>
+        <a href="#carta-sandwiches" class="lam-quick-pill">Sandwiches</a>
+        <a href="#carta-entrantes" class="lam-quick-pill">Entrantes</a>
+        <a href="#carta-bebidas" class="lam-quick-pill">Bebidas</a>
+        <a href="#carta-extras" class="lam-quick-pill">Extras</a>
       </div>
 
       <!-- GRILLA DE LA CARTA -->
