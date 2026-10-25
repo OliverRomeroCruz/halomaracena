@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HALO™ | Smash Burgers Maracena</title>
+  <meta name="description" content="HALO Maracena. Tu comida favorita sin salir de casa. Auténticas smash burgers, bocadillos y entrantes. Pedidos por teléfono al 858 83 14 38 o ven a nuestro local.">
+  <link rel="icon" type="image/jpeg" href="ASSETS/logo_take_away.jpg">
+
+  <!-- Google Fonts: Archivo Black, Syne, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:wght@500;700;800;900&family=Syne:wght@800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CSS LAM Style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="lam-navbar" id="lamNavbar">
+    <div class="lam-nav-left">
+      <a href="#hero" class="lam-nav-brand-link">
+        <img src="ASSETS/LOGO.jpg" alt="HALO" class="lam-nav-logo-img">
+      </a>
+      <div class="lam-status-tag" id="statusBadge">
+        <span class="lam-status-dot" id="statusDot"></span>
+        <span id="statusText">ABIERTO AHORA</span>
+      </div>
+    </div>
+
+    <ul class="lam-nav-links">
+      <li><a href="#carrusel" class="lam-nav-link">Burgers</a></li>
+      <li><a href="#carrusel" class="lam-nav-link">LOOP</a></li>
+      <li><a href="#carta" class="lam-nav-link">La Carta</a></li>
+      <li><a href="#carnes" class="lam-nav-link">Carnes</a></li>
+      <li><a href="#alitas" class="lam-nav-link">Alitas</a></li>
+      <li><a href="#salsas" class="lam-nav-link">Salsas</a></li>
+      <li><a href="#local" class="lam-nav-link">El Local</a></li>
+      <li><a href="#contacto" class="lam-nav-link">Contacto</a></li>
+    </ul>
+
+    <div class="lam-nav-actions">
+      <a href="tel:858831438" class="lam-btn lam-nav-call-btn">
+        <i data-lucide="phone"></i>
+        <span>858 83 14 38</span>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION - ESTILO LAM EXACTO -->
+  <section class="lam-hero" id="hero">
+    <!-- Enorme HALO que ocupa todo el ancho superior -->
+    <div class="lam-brand-header">
+      <h1 class="lam-huge-title">
+        HALO™
+      </h1>
+    </div>
+
+    <!-- Texto inferior icónico: Tu comida favorita sin salir de casa -->
+    <div class="lam-hero-bottom">
+      <div class="lam-statement">
+        TU COMIDA FAVORITA ES<br>
+        NO LO QUE PIENSAS QUE ES
+      </div>
+      <div class="lam-sub-address">
+        C/ SANTA BRÍGIDA, 2 &bull; MARACENA (GRANADA) &bull; TEL. 858 83 14 38 &bull; 603 72 70 08
+      </div>
+
+      <div class="lam-hero-cta">
+        <a href="#carta-fisica" class="lam-btn">
+          <i data-lucide="file-text"></i>
+          <span>Ver Carta Física</span>
+        </a>
+        <a href="#carta" class="lam-btn lam-btn-outline">
+          <i data-lucide="book-open"></i>
+          <span>Ver Carta y Precios</span>
+        </a>
+        <a href="https://wa.me/34603727008" target="_blank" class="lam-btn lam-btn-whatsapp">
+          <i data-lucide="message-circle"></i>
+          <span>Pedir por WhatsApp</span>
+        </a>
+        <a href="tel:858831438" class="lam-btn lam-btn-outline">
+          <i data-lucide="phone-call"></i>
+          <span>Llamar</span>
+        </a>
+        <a href="#contacto" class="lam-btn lam-btn-outline">
+          <i data-lucide="map-pin"></i>
+          <span>Ir al Local</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER MARQUEE NEGRO -->
+  <div class="lam-ticker">
+    <div class="lam-ticker-content">
+      <span>HALO™ MARACENA</span>
+      <span>&bull;</span>
+      <span>SOLO LLAMADAS O EN LOCAL</span>
+      <span>&bull;</span>
+      <span>TEL. 858 83 14 38</span>
+      <span>&bull;</span>
+      <span>TEL. 603 72 70 08</span>
+      <span>&bull;</span>
+      <span>100% CARNE MADURADA</span>
+      <span>&bull;</span>
+      <span>SMASH BURGERS EN LOOP</span>
+      <span>&bull;</span>
+      <span>CALLE SANTA BRÍGIDA, 2</span>
+      <span>&bull;</span>
+      <span>HALO™ MARACENA</span>
+      <span>&bull;</span>
+      <span>SOLO LLAMADAS O EN LOCAL</span>
+      <span>&bull;</span>
+      <span>TEL. 858 83 14 38</span>
+      <span>&bull;</span>
+      <span>TEL. 603 72 70 08</span>
+      <span>&bull;</span>
+      <span>100% CARNE MADURADA</span>
+      <span>&bull;</span>
+      <span>SMASH BURGERS EN LOOP</span>
+      <span>&bull;</span>
+      <span>CALLE SANTA BRÍGIDA, 2</span>
+      <span>&bull;</span>
+    </div>
+  </div>
+
+  <!-- SECCIÓN: SOLO LOS 3 VÍDEOS EN EL GRAN CARRUSEL (SIN FLECHAS, SIN PUNTOS) -->
+  <section class="lam-carousel-section" id="carrusel">
+    <div class="lam-section-header">
+      <div class="lam-section-title-wrap">
+        <h2>SMASH BURGERS EN LOOP</h2>
+        <p>SOLO 3 VÍDEOS &bull; CARNE 100% VACA MADURADA &bull; LLAMA AL 858 83 14 38 O VEN AL LOCAL</p>
+      </div>
+    </div>
+
+    <!-- Contenedor del carrusel con controles -->
+    <div class="lam-carousel-wrap">
+      <button class="lam-carousel-arrow prev" id="carouselPrev" aria-label="Anterior">&larr;</button>
+      <div class="lam-3videos-grid" id="carouselTrack">
+        <!-- Renderizado por app.js -->
+      </div>
+      <button class="lam-carousel-arrow next" id="carouselNext" aria-label="Siguiente">&rarr;</button>
+    </div>
+    <div class="lam-carousel-dots" id="carouselDots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: LA CARTA OFICIAL COMPLETA CON TODOS LOS PRECIOS -->
+  <section class="lam-section-block lam-carta-section" id="carta">
+    <div class="lam-container">
+      <div class="lam-section-title-wrap">
+        <h2>LA CARTA COMPLETA</h2>
+        <p>TODOS NUESTROS PRECIOS OFICIALES &bull; TAKE AWAY & COMER EN EL LOCAL</p>
+      </div>
+
+      <!-- AVISO DE PEDIDOS -->
+      <div class="lam-order-notice">
+        <div class="lam-order-notice-icon">
+          <i data-lucide="phone-forwarded"></i>
+        </div>
+        <div class="lam-order-notice-text">
+          <h3>PEDIDOS SOLO POR TELÉFONO O RECOGIDA EN LOCAL</h3>
+          <p>
+            No realizamos pedidos por WhatsApp ni por aplicación web. Llámanos directamente al 
+            <a href="tel:858831438"><strong>858 83 14 38</strong></a> o al 
+            <a href="tel:603727008"><strong>603 72 70 08</strong></a>, o visítanos en 
+            <strong>Calle Santa Brígida, 2 (Maracena)</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- GRILLA DE LA CARTA -->
+      <div class="lam-menu-tables-grid">
+
+        <!-- 1. BURGUERS -->
+        <div class="lam-menu-card" id="carta-burgers">
+          <div class="lam-menu-card-header">
+            <h3>BURGUERS</h3>
+            <span class="lam-menu-note">Todas llevan tomate, lechuga y cebolla</span>
+          </div>
+          
+          <div class="lam-table-responsive">
+            <table class="lam-table">
+              <thead>
+                <tr>
+                  <th class="col-item">VARIEDAD</th>
+                  <th class="col-price">NORMAL</th>
+                  <th class="col-price"><span class="qh-full">QUESO / HUEVO</span><span class="qh-short">Q / HUEVO</span></th>
+                  <th class="col-price"><span class="comp-full">COMPLETO</span><span class="comp-short">COMPL.</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-item"><strong>Ternera</strong></td>
+                  <td class="col-price">7.00€</td>
+                  <td class="col-price">7.50€</td>
+                  <td class="col-price">8.00€</td>
+                </tr>
+                <tr>
+                  <td class="col-item"><strong>Crispy Chicken</strong></td>
+                  <td class="col-price">7.00€</td>
+                  <td class="col-price">7.50€</td>
+                  <td class="col-price">8.00€</td>
+                </tr>
+                <tr>
+                  <td class="col-item"><strong>Pollo</strong></td>
+                  <td class="col-price">6.00€</td>
+                  <td class="col-price">6.50€</td>
+                  <td class="col-price">7.00€</td>
+                </tr>
+                <tr>
+                  <td class="col-item"><strong>Cerdo</strong></td>
+                  <td class="col-price">6.00€</td>
+                  <td class="col-price">6.50€</td>
+                  <td class="col-price">7.00€</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- DESTACADO HALO SUPREME -->
+          <div class="lam-supreme-banner">
+            <div class="lam-supreme-top">
+              <span class="lam-supreme-badge">⭐ ESPECIALIDAD HALO</span>
+              <span class="lam-supreme-price">8.50€</span>
+            </div>
+            <div class="lam-supreme-name">HALO SUPREME</div>
+            <div class="lam-supreme-desc">
+              Doble smash de ternera madurada, doble queso fundido, bacon ahumado crujiente y cebolla caramelizada.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. BOCADILLOS -->
+        <div class="lam-menu-card" id="carta-bocadillos">
+          <div class="lam-menu-card-header">
+            <h3>BOCADILLOS</h3>
+            <span class="lam-menu-note">Todas llevan tomate, lechuga y cebolla</span>
+          </div>
+
+          <div class="lam-table-responsive">
+            <table class="lam-table">
+              <thead>
+                <tr>
+                  <th class="col-item">VARIEDAD</th>
+                  <th class="col-price">NORMAL</th>
+                  <th class="col-price"><span class="qh-full">QUESO / HUEVO</span><span class="qh-short">Q / HUEVO</span></th>
+                  <th class="col-price"><span class="comp-full">COMPLETO</span><span class="comp-short">COMPL.</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-item"><strong>Pechuga de Pollo</strong></td>
+                  <td class="col-price">6.00€</td>
+                  <td class="col-price">6.50€</td>
+                  <td class="col-price">7.00€</td>
+                </tr>
+                <tr>
+                  <td class="col-item"><strong>Lomo</strong></td>
+                  <td class="col-price">5.50€</td>
+                  <td class="col-price">6.00€</td>
+                  <td class="col-price">6.50€</td>
+                </tr>
+                <tr>
+                  <td class="col-item"><strong>San Francisco</strong></td>
+                  <td class="col-price">6.00€</td>
+                  <td class="col-price">6.50€</td>
+                  <td class="col-price">7.00€</td>
+                </tr>
+                <tr>
+                  <td class="col-item"><strong>Bacon</strong></td>
+                  <td class="col-price">6.00€</td>
+                  <td class="col-price">6.50€</td>
+                  <td class="col-price">7.00€</td>
+                </tr>
+                <tr>
+                  <td class="col-item"><strong>Pechuga Empanada</strong></td>
+                  <td class="col-price">6.00€</td>
+                  <td class="col-price">6.50€</td>
+                  <td class="col-price">7.00€</td>
+                </tr>
+                <tr>
+                  <td class="col-item"><strong>Pepito de Salchicha</strong></td>
+                  <td class="col-price">5.50€</td>
+                  <td class="col-price">6.00€</td>
+                  <td class="col-price">6.50€</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. SANDWICHES & SALCHICHAS -->
+        <div class="lam-menu-card" id="carta-sandwiches">
+          <div class="lam-menu-card-header">
+            <h3>SANDWICHES & SALCHICHAS</h3>
+          </div>
+          
+          <div class="lam-menu-list">
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Sandwich Vegetal</span>
+              <span class="lam-item-price">5.50€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Sandwich de Pollo</span>
+              <span class="lam-item-price">5.00€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Sandwich Mixto</span>
+              <span class="lam-item-price">4.50€</span>
+            </div>
+            <div class="lam-menu-divider"></div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Frankfurt</span>
+              <span class="lam-item-price">4.50€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Salchipapa</span>
+              <span class="lam-item-price">5.50€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. ENTRANTES & PATATAS -->
+        <div class="lam-menu-card" id="carta-entrantes">
+          <div class="lam-menu-card-header">
+            <h3>ENTRANTES & PATATAS</h3>
+          </div>
+
+          <div class="lam-menu-list">
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Alitas (5 uds)</span>
+              <span class="lam-item-price">6.00€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Croquetas Caseras (5 uds)</span>
+              <span class="lam-item-price">6.00€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Nuggets de Pollo (5 uds)</span>
+              <span class="lam-item-price">6.00€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Tequeños (5 uds)</span>
+              <span class="lam-item-price">6.00€</span>
+            </div>
+            <div class="lam-menu-divider"></div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Cheese Fries</span>
+              <span class="lam-item-price">4.00€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Patatas Fritas Caseras</span>
+              <span class="lam-item-price">3.00€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. BEBIDAS -->
+        <div class="lam-menu-card" id="carta-bebidas">
+          <div class="lam-menu-card-header">
+            <h3>BEBIDAS</h3>
+          </div>
+
+          <div class="lam-menu-list">
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Refrescos</span>
+              <span class="lam-item-price">1.50€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Agua Mineral</span>
+              <span class="lam-item-price">1.00€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Alhambra 33cl</span>
+              <span class="lam-item-price">1.50€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Tercio Alhambra Especial</span>
+              <span class="lam-item-price">2.50€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Alhambra 500ml</span>
+              <span class="lam-item-price">1.70€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Alhambra 1925 Lata</span>
+              <span class="lam-item-price">2.00€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Red Bull</span>
+              <span class="lam-item-price">2.00€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. EXTRAS Y PROMOS -->
+        <div class="lam-menu-card" id="carta-extras">
+          <div class="lam-menu-card-header">
+            <h3>EXTRAS & COMPLEMENTOS</h3>
+          </div>
+
+          <div class="lam-menu-list">
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Extra Queso</span>
+              <span class="lam-item-price">+0.50€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Extra Huevo</span>
+              <span class="lam-item-price">+0.50€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Extra Cebolla Caramelizada</span>
+              <span class="lam-item-price">+1.00€</span>
+            </div>
+            <div class="lam-menu-row">
+              <span class="lam-item-title">Extra de Salsas Caseras</span>
+              <span class="lam-item-price">+1.00€</span>
+            </div>
+          </div>
+
+          <!-- BANNER BURGER DEL MES -->
+          <div class="lam-mes-box">
+            <div class="lam-mes-title">🔥 BURGER DEL MES</div>
+            <p class="lam-mes-desc">
+              Pregunta por nuestra Burger del Mes exclusiva al llamar por teléfono.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROMO COMBO: HAZLO MENÚ -->
+      <div class="lam-combo-banner">
+        <div class="lam-combo-badge">SÚPER PROMO</div>
+        <div class="lam-combo-content">
+          <h3>HAZLO MENÚ POR +3.50€</h3>
+          <p>Añade a tu hamburguesa o bocadillo una ración de <strong>Patatas Fritas Caseras + Bebida</strong> de tu elección.</p>
+        </div>
+        <div class="lam-combo-cta">
+          <a href="tel:858831438" class="lam-btn">
+            <i data-lucide="phone"></i>
+            <span>Pedir al 858 83 14 38</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ACCIONES DE CONTACTO Y LLAMADA -->
+      <div class="lam-carta-actions">
+        <a href="tel:858831438" class="lam-btn">
+          <i data-lucide="phone-call"></i>
+          <span>Llamar al Local: 858 83 14 38</span>
+        </a>
+        <a href="tel:603727008" class="lam-btn lam-btn-outline">
+          <i data-lucide="phone"></i>
+          <span>Llamar al Móvil: 603 72 70 08</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: SMASH & VACA MADURADA -->
+  <section class="lam-section-block" id="carnes">
+    <div class="lam-container">
+      <div class="lam-section-title-wrap">
+        <h2>SMASH & VACA MADURADA</h2>
+        <p>100% CARNE SELECCIONADA &bull; COSTRA MAILLARD &bull; MÁXIMA JUGOSIDAD</p>
+      </div>
+
+      <div class="lam-triptych" id="carnesTriptych">
+        <!-- Renderizado por app.js (carne.jpg, carne2.jpg, carne3.jpg) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: ALITAS & ENTRANTES -->
+  <section class="lam-section-block" id="alitas">
+    <div class="lam-container">
+      <div class="lam-section-title-wrap">
+        <h2>ALITAS & ENTRANTES</h2>
+        <p>CRUJIENTES, DORADAS Y MACERADAS 24H EN ESPECIAS SECRETAS</p>
+      </div>
+
+      <div class="lam-grid-3" id="alitasGrid">
+        <!-- Renderizado por app.js (alitas.jpg, alitas1.jpg, bocadillo.jpg) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: SALSAS DE LA CASA -->
+  <section class="lam-section-block" id="salsas">
+    <div class="lam-container">
+      <div class="lam-section-title-wrap">
+        <h2>SALSAS DE LA CASA</h2>
+        <p>RECETAS PROPIAS ELABORADAS DESDE CERO</p>
+      </div>
+
+      <div class="lam-sauce-banner-old" style="background:#0a0102; color:#fff; padding:2rem; border:4px solid #000; box-shadow:6px 6px 0px #000; display:flex; gap:2rem; align-items:center;">
+        <div style="flex:1;">
+          <h3 style="font-family:var(--font-heading); font-size:1.8rem; margin-bottom:1rem; color:#fff;">DIPS DE SALSAS CASERAS</h3>
+          <p style="font-size:1.1rem; line-height:1.6; color:#ccc;">Salsa Secreta Halo Deluxe, Crema de Cheddar Fundido, Mayonesa Trufada, BBQ Ahumada o Salsa Picante.</p>
+          <div style="margin-top:1.5rem; font-weight:900; font-size:1.2rem; color:var(--color-red-lam);">PRECIO EXTRA: 1.00€</div>
+        </div>
+        <img src="ASSETS/salsas.jpg" alt="Salsas caseras Halo Maracena" style="width:280px; height:200px; object-fit:cover; border:2px solid #000;">
+      </div>
+    </div>
+  </section>
+
+

@@ -1,0 +1,1567 @@
+/* ========================================================
+   HALO MARACENA - ESTILO LAM BRUTALISTA ROJO
+   Color base exacto: #E82603 | Tipografía: Archivo Black & Syne
+   SMASH BURGERS & STREET FOOD | Responsive Móviles & Tablets
+   ======================================================== */
+
+:root {
+  --color-red-lam: #e82603;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-dark-surface: #110304;
+  --color-card-black: #0a0102;
+  
+  --font-logo: 'Archivo Black', 'Syne', sans-serif;
+  --font-heading: 'Syne', 'Archivo Black', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  
+  --border-black: 2px solid #000000;
+  --border-thick: 4px solid #000000;
+  --shadow-brutal: 6px 6px 0px #000000;
+  --shadow-brutal-hover: 10px 10px 0px #000000;
+  
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset y base global */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-red-lam);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  background-color: var(--color-red-lam);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Imágenes y vídeos fluidos */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Selección de texto invertida */
+::selection {
+  background: var(--color-black);
+  color: var(--color-red-lam);
+}
+
+/* ========================================================
+   NAVBAR BRUTALISTA
+   ======================================================== */
+.lam-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: var(--color-red-lam);
+  border-bottom: var(--border-black);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.lam-navbar.scrolled {
+  box-shadow: 0 4px 0px #000000;
+}
+
+.lam-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lam-nav-brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.lam-nav-logo-img {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--color-black);
+  box-shadow: 3px 3px 0px var(--color-black);
+  object-fit: cover;
+  background: var(--color-white);
+  transition: var(--transition);
+}
+
+.lam-nav-logo-img:hover {
+  transform: scale(1.08);
+  box-shadow: 4px 4px 0px var(--color-black);
+}
+
+.lam-nav-brand-text {
+  font-family: var(--font-logo);
+  font-size: 1.6rem;
+  color: var(--color-black);
+  text-decoration: none;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.lam-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  list-style: none;
+}
+
+.lam-nav-link {
+  color: var(--color-black);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding: 0.3rem 0;
+}
+
+.lam-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--color-black);
+  transition: var(--transition);
+}
+
+.lam-nav-link:hover::after, .lam-nav-link.active::after {
+  width: 100%;
+}
+
+.lam-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.lam-nav-toggle {
+  display: none;
+  background: var(--color-black);
+  color: var(--color-white);
+  border: var(--border-black);
+  box-shadow: 3px 3px 0px var(--color-white);
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lam-nav-toggle:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--color-white);
+}
+
+/* ========================================================
+   DRAWER Y OVERLAY MÓVIL
+   ======================================================== */
+.lam-mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lam-mobile-nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lam-mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 320px;
+  background: var(--color-black);
+  color: var(--color-white);
+  border-left: var(--border-black);
+  box-shadow: -8px 0 0px var(--color-red-lam);
+  display: none;
+  flex-direction: column;
+  z-index: 1100;
+  padding: 1.5rem;
+}
+
+.lam-mobile-nav.open {
+  display: flex;
+}
+
+.lam-mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.2rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.lam-mobile-nav-close {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lam-mobile-nav-links {
+  list-style: none;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.lam-mobile-nav-link {
+  color: var(--color-white);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 0.5rem;
+  display: block;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.lam-mobile-nav-link:hover {
+  color: var(--color-red-lam);
+  padding-left: 0.8rem;
+}
+
+.lam-mobile-nav-footer {
+  padding-top: 1.2rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.lam-mobile-nav-info {
+  text-align: center;
+  color: #888888;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+/* ========================================================
+   BOTONES BRUTALISTAS
+   ======================================================== */
+.lam-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  border: var(--border-black);
+  background: var(--color-black);
+  color: var(--color-white);
+  box-shadow: 4px 4px 0px var(--color-white);
+  transition: var(--transition);
+}
+
+.lam-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-white);
+  background: #1a1a1a;
+}
+
+.lam-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-white);
+}
+
+.lam-btn-outline {
+  background: transparent;
+  color: var(--color-black);
+  box-shadow: 4px 4px 0px var(--color-black);
+}
+
+.lam-btn-outline:hover {
+  background: var(--color-black);
+  color: var(--color-red-lam);
+  box-shadow: 6px 6px 0px var(--color-white);
+}
+
+.lam-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 900;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: var(--border-black);
+  padding: 0.35rem 0.8rem;
+  background: var(--color-white);
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.lam-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+  flex-shrink: 0;
+}
+
+/* ========================================================
+   HERO STYLE LAM
+   ======================================================== */
+.lam-hero {
+  position: relative;
+  min-height: 88vh;
+  padding: 110px 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-red-lam);
+  text-align: center;
+  overflow: hidden;
+}
+
+.lam-brand-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.lam-huge-title {
+  font-family: var(--font-logo);
+  font-size: clamp(3.2rem, 18.5vw, 22rem);
+  line-height: 0.85;
+  color: var(--color-black);
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  font-weight: 900;
+  display: inline-block;
+  user-select: none;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.lam-hero-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.lam-statement {
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 3.8vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.lam-sub-address {
+  font-size: clamp(0.78rem, 2vw, 0.95rem);
+  font-weight: 800;
+  color: var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+  max-width: 100%;
+}
+
+.lam-hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.8rem;
+  width: 100%;
+}
+
+/* ========================================================
+   TICKER / MARQUEE NEGRO BRUTALISTA
+   ======================================================== */
+.lam-ticker {
+  background: var(--color-black);
+  color: var(--color-red-lam);
+  padding: 1rem 0;
+  overflow: hidden;
+  border-top: var(--border-black);
+  border-bottom: var(--border-black);
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  contain: paint;
+}
+
+.lam-ticker-content {
+  display: flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  animation: ticker-anim 22s linear infinite;
+  font-family: var(--font-logo);
+  font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@keyframes ticker-anim {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ========================================================
+   SECCIÓN: 3 VÍDEOS EN BUCLE (HAMBURGUESAS)
+   ======================================================== */
+.lam-carousel-section {
+  padding: 5rem 2rem;
+  background-color: var(--color-red-lam);
+  border-bottom: var(--border-black);
+  position: relative;
+}
+
+.lam-section-header {
+  max-width: 1320px;
+  margin: 0 auto 2.5rem;
+}
+
+.lam-section-title-wrap h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.5vw, 4.2rem);
+  line-height: 0.95;
+  color: var(--color-black);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.lam-section-title-wrap p {
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  font-weight: 700;
+  color: var(--color-black);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.95;
+}
+
+.lam-3videos-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+/* Tarjeta brutalista */
+.lam-card {
+  width: 100%;
+  background: var(--color-black);
+  color: var(--color-white);
+  border: var(--border-black);
+  box-shadow: 8px 8px 0px #ffffff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.lam-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 12px 12px 0px #ffffff;
+}
+
+.lam-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-red-lam);
+}
+
+.lam-card-media video,
+.lam-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lam-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.25rem 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: var(--border-black);
+}
+
+.lam-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.75rem;
+}
+
+.lam-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.lam-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--color-white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.lam-card-price {
+  font-family: var(--font-logo);
+  font-size: 1.5rem;
+  color: var(--color-red-lam);
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.lam-card-desc {
+  font-size: 0.88rem;
+  color: #d1d1d1;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.lam-card-footer {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lam-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-red-lam);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lam-card-call-btn {
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  border: var(--border-black);
+  font-family: var(--font-body);
+  font-weight: 900;
+  font-size: 0.82rem;
+  padding: 0.5rem 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 3px 3px 0px var(--color-white);
+  transition: var(--transition);
+}
+
+.lam-card-call-btn:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--color-red-lam);
+}
+
+/* ========================================================
+   SECCIÓN: LA CARTA OFICIAL COMPLETA
+   ======================================================== */
+.lam-carta-section {
+  background-color: var(--color-red-lam);
+  padding: 5rem 2rem;
+  border-bottom: var(--border-black);
+}
+
+.lam-order-notice {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: 3px solid var(--color-black);
+  box-shadow: 8px 8px 0px #ffffff;
+  padding: 1.8rem 2.2rem;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  border-radius: 4px;
+}
+
+.lam-order-notice-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  border: var(--border-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lam-order-notice-icon i {
+  width: 30px;
+  height: 30px;
+}
+
+.lam-order-notice-text h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--color-red-lam);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+.lam-order-notice-text p {
+  color: #e5e5e5;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.lam-order-notice-text a {
+  color: var(--color-white);
+  text-decoration: underline;
+  font-weight: 800;
+}
+
+.lam-order-notice-text a:hover {
+  color: var(--color-red-lam);
+}
+
+/* Navegación rápida de la carta */
+.lam-carta-quick-nav {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.2rem 0 1.5rem;
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.lam-carta-quick-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.lam-quick-pill {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: 2px solid var(--color-black);
+  padding: 0.5rem 1.1rem;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 3px 3px 0px var(--color-white);
+  transition: var(--transition);
+  border-radius: 2px;
+}
+
+.lam-quick-pill:hover, .lam-quick-pill:active {
+  background: var(--color-white);
+  color: var(--color-black);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--color-red-lam);
+}
+
+/* Grilla de tablas del Menú */
+.lam-menu-tables-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.lam-menu-card {
+  width: 100%;
+  max-width: 100%;
+  background: var(--color-card-black);
+  color: var(--color-white);
+  border: var(--border-black);
+  box-shadow: 8px 8px 0px #ffffff;
+  padding: 2rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.lam-menu-card:hover {
+  box-shadow: 12px 12px 0px #ffffff;
+  transform: translateY(-3px);
+}
+
+.lam-menu-card-header {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lam-menu-card-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.lam-menu-note {
+  font-size: 0.8rem;
+  color: var(--color-red-lam);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Tablas responsive */
+.lam-table-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+}
+
+.lam-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.lam-table th, .lam-table td {
+  padding: 0.7rem 0.35rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lam-table th {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: var(--color-red-lam);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--color-red-lam);
+  line-height: 1.15;
+}
+
+.lam-table .col-item {
+  width: 37%;
+  color: var(--color-white);
+  font-weight: 800;
+}
+
+.lam-table .col-price {
+  width: 21%;
+  text-align: right;
+  font-family: var(--font-logo);
+  color: #ffffff;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.qh-short, .comp-short {
+  display: none;
+}
+
+.qh-full, .comp-full {
+  display: inline;
+}
+
+.lam-table tbody tr:hover td {
+  background: rgba(232, 38, 3, 0.12);
+}
+
+/* Destacado HALO SUPREME */
+.lam-supreme-banner {
+  margin-top: 1.5rem;
+  background: #190305;
+  border: 2px solid var(--color-red-lam);
+  padding: 1.2rem;
+  border-radius: 3px;
+}
+
+.lam-supreme-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.lam-supreme-badge {
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lam-supreme-price {
+  font-family: var(--font-logo);
+  font-size: 1.5rem;
+  color: var(--color-red-lam);
+}
+
+.lam-supreme-name {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.lam-supreme-desc {
+  font-size: 0.85rem;
+  color: #cfcfcf;
+  margin-top: 0.3rem;
+  line-height: 1.4;
+}
+
+/* Lista simple de productos con precio a la derecha */
+.lam-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.lam-menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.lam-item-title {
+  font-weight: 800;
+  font-size: 0.98rem;
+  color: var(--color-white);
+}
+
+.lam-item-price {
+  font-family: var(--font-logo);
+  font-size: 1.15rem;
+  color: var(--color-red-lam);
+  white-space: nowrap;
+}
+
+.lam-menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 0.6rem 0;
+}
+
+/* Banner de Burger del Mes */
+.lam-mes-box {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  background: #140203;
+  border: 2px dashed var(--color-red-lam);
+  border-radius: 3px;
+}
+
+.lam-mes-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--color-red-lam);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.lam-mes-desc {
+  font-size: 0.85rem;
+  color: #d1d1d1;
+  line-height: 1.4;
+}
+
+/* Banner Promo Hazlo Menú */
+.lam-combo-banner {
+  margin-top: 2.5rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  border: 3px solid var(--color-black);
+  box-shadow: 10px 10px 0px #ffffff;
+  padding: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-radius: 4px;
+}
+
+.lam-combo-badge {
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  font-family: var(--font-logo);
+  font-size: 0.9rem;
+  font-weight: 900;
+  padding: 0.4rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lam-combo-content h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.lam-combo-content p {
+  color: #e5e5e5;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+/* Botones de acción al final de la carta */
+.lam-carta-actions {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+/* ========================================================
+   SECCIONES ORGANIZADAS POR FOTOS
+   ======================================================== */
+.lam-section-block {
+  padding: 5rem 2rem;
+  border-bottom: var(--border-black);
+  background-color: var(--color-red-lam);
+}
+
+.lam-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Cuadrículas fluidas (min: 100% o 300px para evitar overflow) */
+.lam-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.lam-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Banner de Salsas (salsas.jpg) */
+.lam-sauce-banner {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: var(--border-black);
+  box-shadow: 10px 10px 0px #ffffff;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: stretch;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.lam-sauce-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  background: var(--color-red-lam);
+}
+
+.lam-sauce-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lam-sauce-media-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.3rem 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: var(--border-black);
+  box-shadow: 2px 2px 0px var(--color-white);
+}
+
+.lam-sauce-content {
+  padding: 2.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.lam-sauce-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.lam-sauce-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-white);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.lam-sauce-desc {
+  color: #cfcfcf;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+.lam-sauce-tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.lam-sauce-pill {
+  background: #190305;
+  border: 1px solid var(--color-red-lam);
+  color: var(--color-white);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lam-sauce-price-tag {
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  font-family: var(--font-logo);
+  font-size: 1.05rem;
+  font-weight: 900;
+  padding: 0.4rem 0.9rem;
+  border: var(--border-black);
+  box-shadow: 2px 2px 0px var(--color-white);
+  white-space: nowrap;
+}
+
+/* Trípticos */
+.lam-triptych {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.lam-photo-card {
+  position: relative;
+  background: var(--color-black);
+  border: var(--border-black);
+  box-shadow: 6px 6px 0px var(--color-white);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.lam-photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0px var(--color-white);
+}
+
+.lam-photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.lam-photo-info {
+  padding: 1.4rem;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.lam-photo-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.lam-photo-desc {
+  font-size: 0.88rem;
+  color: #bfbfbf;
+  margin-top: 0.4rem;
+  line-height: 1.45;
+}
+
+/* ========================================================
+   UBICACIÓN & CONTACTO
+   ======================================================== */
+.lam-contact-wrap {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: var(--border-black);
+  box-shadow: 10px 10px 0px var(--color-white);
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.lam-contact-info {
+  max-width: 100%;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.lam-contact-info h3 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--color-white);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.lam-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lam-contact-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.lam-contact-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  border: var(--border-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lam-contact-text h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-red-lam);
+}
+
+.lam-contact-text p, .lam-contact-text a {
+  color: #d1d1d1;
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.lam-contact-text a:hover {
+  color: var(--color-white);
+}
+
+.lam-map-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border: var(--border-black);
+}
+
+.lam-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(1) invert(0.9);
+}
+
+/* ========================================================
+   FOOTER ESTILO LAM
+   ======================================================== */
+.lam-footer {
+  padding: 4rem 2rem 2rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  border-top: var(--border-black);
+  text-align: center;
+  width: 100%;
+}
+
+.lam-footer-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.lam-footer-huge-logo {
+  font-family: var(--font-logo);
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  line-height: 0.85;
+  color: var(--color-red-lam);
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.lam-footer-links {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lam-footer-link {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lam-footer-link:hover {
+  color: var(--color-red-lam);
+}
+
+.lam-footer-copy {
+  font-size: 0.85rem;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ========================================================
+   ADAPTIVE RESPONSIVE BREAKPOINTS (MOBILE & TABLET EXCELLENCE)
+   ======================================================== */
+
+/* TABLETS EN MODO PAISAJE Y LAPTOPS PEQUEÑAS (max-width: 1100px) */
+@media (max-width: 1100px) {
+  .lam-3videos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+  .lam-menu-tables-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+}
+
+/* TABLETS EN MODO RETRATO & DISPOSITIVOS MEDIANOS (max-width: 992px) */
+@media (max-width: 992px) {
+  .lam-navbar {
+    padding: 0 1.5rem;
+  }
+  .lam-nav-links {
+    display: none;
+  }
+  .lam-nav-toggle {
+    display: flex;
+  }
+  .lam-3videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .lam-3videos-grid article:nth-child(3) {
+    grid-column: span 2;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .lam-triptych {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+  .lam-triptych .lam-photo-card:nth-child(3) {
+    grid-column: span 2;
+  }
+  .lam-sauce-banner {
+    display: flex;
+    flex-direction: column;
+  }
+  .lam-sauce-media {
+    height: 240px;
+    min-height: 240px;
+    border-bottom: var(--border-black);
+  }
+  .lam-sauce-content {
+    padding: 2rem 1.5rem;
+  }
+  .lam-contact-wrap {
+    grid-template-columns: 1fr;
+    padding: 2.2rem;
+    gap: 2rem;
+  }
+}
+
+/* PHABLETS Y MÓVILES GRANDES (max-width: 768px) */
+@media (max-width: 768px) {
+  .lam-hero {
+    padding: 95px 1.2rem 3.5rem;
+  }
+  .lam-section-block,
+  .lam-carousel-section {
+    padding: 3.5rem 1.2rem;
+  }
+  .lam-3videos-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+  .lam-3videos-grid article:nth-child(3) {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+  .lam-triptych {
+    grid-template-columns: 1fr;
+  }
+  .lam-triptych .lam-photo-card:nth-child(3) {
+    grid-column: span 1;
+  }
+  .lam-grid-3, .lam-grid-2 {
+    gap: 1.5rem;
+  }
+  .lam-order-notice {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.4rem 1.2rem;
+    gap: 1rem;
+  }
+  .lam-combo-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.8rem 1.4rem;
+    gap: 1.2rem;
+  }
+  .lam-carta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .lam-carta-actions .lam-btn {
+    width: 100%;
+  }
+}
+
+/* MÓVILES COMPACTOS (max-width: 520px) */
+@media (max-width: 520px) {
+  .lam-navbar {
+    height: 64px;
+    padding: 0 0.8rem;
+  }
+  .lam-nav-logo-img {
+    height: 40px;
+    width: 40px;
+  }
+  .lam-status-tag {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.5rem;
+  }
+  #statusText {
+    display: none;
+  }
+  .lam-nav-call-btn span {
+    display: none;
+  }
+  .lam-nav-call-btn {
+    padding: 0.55rem;
+  }
+  .lam-nav-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  .lam-hero {
+    padding: 80px 1rem 2.8rem;
+  }
+  .lam-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  .lam-hero-cta .lam-btn {
+    width: 100%;
+  }
+  .lam-section-block,
+  .lam-carousel-section {
+    padding: 3rem 0.8rem;
+  }
+  .lam-menu-card {
+    padding: 1.2rem 0.65rem;
+  }
+  .lam-table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 100%;
+    display: block;
+  }
+  .lam-table {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 0.78rem;
+  }
+  .lam-table th, .lam-table td {
+    padding: 0.45rem 0.15rem;
+    font-size: 0.78rem;
+  }
+  .lam-table .col-price {
+    font-size: 0.88rem;
+  }
+  .lam-table .col-item {
+    font-size: 0.82rem;
+  }
+  .lam-sauce-media {
+    height: 190px;
+    min-height: 190px;
+  }
+  .lam-sauce-content {
+    padding: 1.4rem 1rem;
+  }
+  .lam-sauce-pill {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.55rem;
+  }
+  .lam-contact-wrap {
+    padding: 1.4rem 1rem;
+  }
+  .lam-map-frame {
+    min-height: 250px;
+    height: 250px;
+  }
+  .lam-footer {
+    padding: 3rem 1rem 2rem;
+  }
+  .lam-footer-links {
+    gap: 1rem;
+  }
+}
