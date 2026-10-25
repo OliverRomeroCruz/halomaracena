@@ -24,7 +24,7 @@
   <header class="lam-navbar" id="lamNavbar">
     <div class="lam-nav-left">
       <a href="#hero" class="lam-nav-brand-link">
-        <img src="ASSETS/LOGO.jpg" alt="HALO" class="lam-nav-logo-img">
+        <span class="lam-nav-brand-text">HALO™</span>
       </a>
       <div class="lam-status-tag" id="statusBadge">
         <span class="lam-status-dot" id="statusDot"></span>
@@ -34,7 +34,6 @@
 
     <ul class="lam-nav-links">
       <li><a href="#carrusel" class="lam-nav-link">Burgers</a></li>
-      <li><a href="#carrusel" class="lam-nav-link">LOOP</a></li>
       <li><a href="#carta" class="lam-nav-link">La Carta</a></li>
       <li><a href="#carnes" class="lam-nav-link">Carnes</a></li>
       <li><a href="#alitas" class="lam-nav-link">Alitas</a></li>
@@ -139,18 +138,9 @@
       </div>
     </div>
 
-    <!-- Contenedor del carrusel con controles -->
-    <div class="lam-carousel-wrap">
-      <button class="lam-carousel-arrow prev" id="carouselPrev" aria-label="Anterior">&larr;</button>
-      <div class="lam-3videos-grid" id="carouselTrack">
-        <!-- Renderizado por app.js -->
-      </div>
-      <button class="lam-carousel-arrow next" id="carouselNext" aria-label="Siguiente">&rarr;</button>
-    </div>
-    <div class="lam-carousel-dots" id="carouselDots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
+    <!-- Contenedor de las 3 tarjetas de vídeo -->
+    <div class="lam-3videos-grid" id="carouselTrack">
+      <!-- Renderizado por app.js desde menu-data.js (exactamente 3 loops) -->
     </div>
   </section>
 
