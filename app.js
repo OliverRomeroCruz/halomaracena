@@ -60,12 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
         carouselTrack.innerHTML = HALO_DATA.carouselBurgers.map((item, idx) => `
             <article class="lam-card" data-index="${idx}" data-id="${item.id}">
                 <div class="lam-card-media">
+                    <span class="lam-card-badge">${item.tag}</span>
+                    <span class="lam-card-loop-pill">
+                        <span class="lam-loop-pulse"></span> LOOP HD
+                    </span>
                     <video 
                         class="card-loop-vid" 
                         autoplay 
                         loop 
                         muted 
                         playsinline 
+                        webkit-playsinline
+                        preload="auto"
                         poster="${item.poster || ''}">
                         <source src="${item.video}" type="video/mp4">
                     </video>
@@ -78,14 +84,72 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="lam-card-desc">${item.desc}</p>
                     <div class="lam-card-footer">
                         <span class="lam-tag">${item.tag}</span>
-                        <a href="tel:858831438" class="lam-card-call-btn">
+                        <a href="tel:858831438" class="lam-card-call-btn" aria-label="Llamar para pedir ${item.title}">
                             <i data-lucide="phone"></i>
-                            <span>LLAMAR</span>
+                            <span class="lam-call-btn-desktop">LLAMAR</span>
+                            <span class="lam-call-btn-mobile">PEDIR POR TELÉFONO (${item.price})</span>
                         </a>
                     </div>
                 </div>
             </article>
         `).join("");
+
+        // Sincronización de selector táctil en móvil
+        const mobileNavPills = document.querySelectorAll(".lam-carousel-pill");
+        if (mobileNavPills.length > 0) {
+            mobileNavPills.forEach((pill) => {
+                pill.addEventListener("click", () => {
+                    const targetIdx = parseInt(pill.dataset.index, 10);
+                    const targetCard = carouselTrack.children[targetIdx];
+                    if (targetCard) {
+                        targetCard.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+                    }
+                    mobileNavPills.forEach((p, i) => {
+                        p.classList.toggle("active", i === targetIdx);
+                    });
+                });
+            });
+
+            // Resaltar píldora activa con el desplazamiento táctil
+            let scrollTimer;
+            carouselTrack.addEventListener("scroll", () => {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    const trackCenter = carouselTrack.scrollLeft + carouselTrack.clientWidth / 2;
+                    let closestIdx = 0;
+                    let closestDist = Infinity;
+                    Array.from(carouselTrack.children).forEach((card, idx) => {
+                        const cardCenter = card.offsetLeft + card.clientWidth / 2;
+                        const dist = Math.abs(trackCenter - cardCenter);
+                        if (dist < closestDist) {
+                            closestDist = dist;
+                            closestIdx = idx;
+                        }
+                    });
+                    mobileNavPills.forEach((p, i) => {
+                        p.classList.toggle("active", i === closestIdx);
+                    });
+                }, 50);
+            }, { passive: true });
+        }
+
+        // Garantizar reproducción continua de los vídeos en dispositivos móviles
+        const loopVideos = carouselTrack.querySelectorAll(".card-loop-vid");
+        loopVideos.forEach(vid => {
+            vid.muted = true;
+            const playPromise = vid.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    const playOnInteraction = () => {
+                        vid.play().catch(() => {});
+                        window.removeEventListener("touchstart", playOnInteraction);
+                        window.removeEventListener("scroll", playOnInteraction);
+                    };
+                    window.addEventListener("touchstart", playOnInteraction, { once: true, passive: true });
+                    window.addEventListener("scroll", playOnInteraction, { once: true, passive: true });
+                });
+            }
+        });
     }
 
     // 5. RENDERIZAR SECCIONES POR FOTOS NOMBRADAS
