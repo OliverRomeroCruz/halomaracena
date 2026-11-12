@@ -1227,10 +1227,12 @@ img, video {
 /* ========================================================
    SECCIONES ORGANIZADAS POR FOTOS
    ======================================================== */
-.lam-section-block {
+.lam-section-block,
+section[id] {
   padding: 5rem 2rem;
   border-bottom: var(--border-black);
   background-color: var(--color-red-lam);
+  scroll-margin-top: 80px;
 }
 
 .lam-container {
@@ -1449,10 +1451,11 @@ img, video {
 
 .lam-contact-info h3 {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
   color: var(--color-white);
   text-transform: uppercase;
   margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
 }
 
 .lam-contact-list {
@@ -1494,6 +1497,99 @@ img, video {
 
 .lam-contact-text a:hover {
   color: var(--color-white);
+}
+
+/* ========================================================
+   BOTONES DE ACCIÓN EN DÓNDE ESTAMOS
+   ======================================================== */
+.lam-contact-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.lam-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0 1rem;
+  height: 52px;
+  min-height: 52px;
+  font-family: var(--font-body);
+  font-weight: 900;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+/* WhatsApp: Rojo brutalista con texto negro y sombra blanca */
+.lam-contact-btn-wa {
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  border: var(--border-black);
+  box-shadow: 4px 4px 0px var(--color-white);
+}
+
+.lam-contact-btn-wa:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-red-lam);
+}
+
+.lam-contact-btn-wa:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-white);
+}
+
+/* Llamar: Rojo brutalista a juego con texto negro y sombra blanca */
+.lam-contact-btn-call {
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  border: var(--border-black);
+  box-shadow: 4px 4px 0px var(--color-white);
+}
+
+.lam-contact-btn-call:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-red-lam);
+}
+
+.lam-contact-btn-call:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-white);
+}
+
+/* Google Maps: Fila completa inferior con estilo outline blanco nítido */
+.lam-contact-btn-map {
+  grid-column: span 2;
+  background: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+  box-shadow: 4px 4px 0px var(--color-white);
+}
+
+.lam-contact-btn-map:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-red-lam);
+}
+
+.lam-contact-btn-map:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-white);
 }
 
 .lam-map-frame {
@@ -1643,6 +1739,19 @@ img, video {
 
   .lam-section-block {
     padding: 3.5rem 1.2rem;
+  }
+
+  .lam-contact-actions {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .lam-contact-btn {
+    width: 100%;
+    grid-column: span 1 !important;
+    padding: 0.82rem 1rem;
+    font-size: 0.86rem;
   }
 
   /* SECCIÓN VÍDEOS EN BUCLE (HAMBURGUESAS) - FORMATO PREMIUM MÓVIL */
