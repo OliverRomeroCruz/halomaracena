@@ -334,14 +334,14 @@ img, video {
   box-shadow: 6px 6px 0px var(--color-white);
 }
 
-/* BOTÓN WHATSAPP BRUTALISTA */
+/* BOTÓN WHATSAPP BRUTALISTA (A JUEGO CON LLAMAR AL LOCAL) */
 .lam-btn-whatsapp {
-  background: #25d366;
-  color: #000000;
+  background: transparent;
+  color: var(--color-black);
   border: var(--border-black);
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 4px 4px 0px var(--color-black);
   font-family: var(--font-body);
-  font-weight: 900;
+  font-weight: 800;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -356,15 +356,40 @@ img, video {
 }
 
 .lam-btn-whatsapp:hover {
-  background: #1ebc59;
-  color: #000000;
+  background: var(--color-black);
+  color: var(--color-red-lam);
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #000000;
+  box-shadow: 6px 6px 0px var(--color-white);
 }
 
 .lam-btn-whatsapp:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #000000;
+  box-shadow: 2px 2px 0px var(--color-black);
+}
+
+.lam-mobile-nav-footer .lam-btn-whatsapp {
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  border: var(--border-black);
+  box-shadow: 3px 3px 0px var(--color-white);
+}
+
+.lam-mobile-nav-footer .lam-btn-whatsapp:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.lam-order-notice .lam-btn-whatsapp {
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  border: var(--border-black);
+  box-shadow: 4px 4px 0px var(--color-white);
+}
+
+.lam-order-notice .lam-btn-whatsapp:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  box-shadow: 6px 6px 0px var(--color-red-lam);
 }
 
 .lam-wa-icon {
@@ -379,10 +404,10 @@ img, video {
   bottom: 28px;
   right: 24px;
   z-index: 1020;
-  background: #25d366;
-  color: #000000;
-  border: 2.5px solid #000000;
-  box-shadow: 4px 4px 0px #000000;
+  background: var(--color-red-lam);
+  color: var(--color-black);
+  border: 2.5px solid var(--color-black);
+  box-shadow: 4px 4px 0px var(--color-black);
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -398,34 +423,34 @@ img, video {
 }
 
 .lam-float-wa:hover {
-  background: #1ebc59;
-  color: #000000;
+  background: var(--color-black);
+  color: var(--color-white);
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 6px 6px 0px #000000;
+  box-shadow: 6px 6px 0px var(--color-white);
 }
 
 .lam-float-wa:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #000000;
+  box-shadow: 2px 2px 0px var(--color-black);
 }
 
 @media (max-width: 768px) {
   .lam-float-wa {
     bottom: 20px;
     right: 18px;
-    width: 54px;
-    height: 54px;
+    width: 52px;
+    height: 52px;
     padding: 0;
     justify-content: center;
     border-radius: 50%;
-    box-shadow: 3px 3px 0px #000000;
+    box-shadow: 3px 3px 0px var(--color-black);
   }
   .lam-float-wa span {
     display: none;
   }
   .lam-float-wa .lam-wa-icon {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
   }
 }
 
@@ -523,11 +548,41 @@ img, video {
 
 .lam-hero-cta {
   display: flex;
-  gap: 1rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 0.8rem;
   width: 100%;
+}
+
+/* EN PC: LOS 4 BOTONES PRINCIPALES EN UNA SOLA LÍNEA */
+@media (min-width: 993px) {
+  .lam-hero-bottom {
+    max-width: 1200px;
+  }
+  .lam-hero-cta {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.85rem;
+    width: auto;
+    max-width: 100%;
+  }
+  .lam-hero-cta .lam-btn,
+  .lam-hero-cta .lam-btn-whatsapp,
+  .lam-hero-cta .lam-btn-outline {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0 1.15rem;
+    height: 52px;
+    font-size: 0.86rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
 }
 
 /* ========================================================
@@ -746,8 +801,8 @@ img, video {
 }
 
 .lam-card-wa-btn {
-  background: #25d366;
-  color: #000000;
+  background: var(--color-red-lam);
+  color: var(--color-black);
   border: var(--border-black);
   font-family: var(--font-body);
   font-weight: 900;
@@ -766,10 +821,10 @@ img, video {
 }
 
 .lam-card-wa-btn:hover {
-  background: #1ebc59;
-  color: #000000;
+  background: var(--color-white);
+  color: var(--color-black);
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px var(--color-white);
+  box-shadow: 5px 5px 0px var(--color-red-lam);
 }
 
 .lam-card-wa-btn:active {
