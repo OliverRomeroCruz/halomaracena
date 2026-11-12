@@ -61,18 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
             <article class="lam-card" data-index="${idx}" data-id="${item.id}">
                 <div class="lam-card-media">
                     <span class="lam-card-badge">${item.tag}</span>
-                    <span class="lam-card-loop-pill">
-                        <span class="lam-loop-pulse"></span> LOOP HD
-                    </span>
                     <video 
                         class="card-loop-vid" 
+                        src="${item.video}"
                         autoplay 
                         loop 
                         muted 
                         playsinline 
                         webkit-playsinline
-                        preload="auto"
-                        poster="${item.poster || ''}">
+                        preload="auto">
                         <source src="${item.video}" type="video/mp4">
                     </video>
                 </div>
@@ -133,22 +130,32 @@ document.addEventListener("DOMContentLoaded", () => {
             }, { passive: true });
         }
 
-        // Garantizar reproducción continua de los vídeos en dispositivos móviles
+        // Garantizar reproducción inmediata y continua de los vídeos en dispositivos móviles
         const loopVideos = carouselTrack.querySelectorAll(".card-loop-vid");
         loopVideos.forEach(vid => {
             vid.muted = true;
-            const playPromise = vid.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                    const playOnInteraction = () => {
-                        vid.play().catch(() => {});
-                        window.removeEventListener("touchstart", playOnInteraction);
-                        window.removeEventListener("scroll", playOnInteraction);
-                    };
-                    window.addEventListener("touchstart", playOnInteraction, { once: true, passive: true });
-                    window.addEventListener("scroll", playOnInteraction, { once: true, passive: true });
-                });
-            }
+            vid.defaultMuted = true;
+            vid.playsInline = true;
+            vid.setAttribute("muted", "");
+            vid.setAttribute("playsinline", "");
+            vid.setAttribute("webkit-playsinline", "");
+
+            const playVid = () => {
+                const p = vid.play();
+                if (p !== undefined) {
+                    p.catch(() => {});
+                }
+            };
+
+            playVid();
+            vid.addEventListener("loadedmetadata", playVid, { once: true });
+            vid.addEventListener("loadeddata", playVid, { once: true });
+            vid.addEventListener("canplay", playVid, { once: true });
+
+            // Si el navegador móvil bloquea autoplay antes de interacción, arrancar con el menor toque/scroll
+            ["touchstart", "touchend", "scroll", "pointerdown", "click"].forEach(evt => {
+                window.addEventListener(evt, playVid, { once: true, passive: true });
+            });
         });
     }
 

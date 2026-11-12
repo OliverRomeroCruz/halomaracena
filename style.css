@@ -599,6 +599,7 @@ img, video {
   color: #d1d1d1;
   line-height: 1.5;
   flex-grow: 1;
+  white-space: pre-line;
 }
 
 .lam-card-footer {
@@ -654,41 +655,6 @@ img, video {
 .lam-carousel-mobile-nav,
 .lam-carousel-hint {
   display: none;
-}
-
-.lam-card-loop-pill {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(0, 0, 0, 0.82);
-  backdrop-filter: blur(4px);
-  color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 800;
-  padding: 0.25rem 0.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  z-index: 2;
-  border-radius: 2px;
-}
-
-.lam-loop-pulse {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #ef4444;
-  box-shadow: 0 0 6px #ef4444;
-  animation: pulse-dot 1.8s infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
 }
 
 /* ========================================================
@@ -1564,13 +1530,6 @@ img, video {
     box-shadow: 2px 2px 0px #000000;
   }
 
-  .lam-card-loop-pill {
-    top: 10px;
-    right: 10px;
-    font-size: 0.65rem;
-    padding: 0.2rem 0.5rem;
-  }
-
   .lam-card-body {
     padding: 1.15rem 1rem;
     gap: 0.6rem;
@@ -1594,7 +1553,8 @@ img, video {
     font-size: 0.84rem;
     line-height: 1.45;
     color: #cccccc;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.4rem;
+    white-space: pre-line;
   }
 
   .lam-card-footer {

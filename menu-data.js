@@ -10,22 +10,29 @@ const HALO_DATA = {
     // SOLO LOS 3 VÍDEOS EN LOOP
     carouselBurgers: [
         {
-            id: "halo-deluxe",
-            title: "HALO DELUXE SMASH",
-            tag: "Nº 1 MÁS VENDIDA",
+            id: "halo-supreme",
+            title: "HALO SUPREME",
+            tag: "ESPECIALIDAD DE LA CASA",
             price: "8.50€",
             desc: "Doble smash de ternera madurada con costra Maillard, doble queso cheddar fundido, bacon ahumado crujiente y cebolla caramelizada en pan brioche artesanal.",
-            video: "ASSETS/loops/burger_loop_2_lam.mp4",
-            poster: "ASSETS/carne2.jpg"
+            video: "ASSETS/loops/burger_loop_2_lam.mp4"
         },
         {
-            id: "bacon-monster",
-            title: "BACON MONSTER SMASH",
-            tag: "TRIPLE CARNE & EXTRA BACON",
+            id: "halo-deluxe",
+            title: "HALO DELUXE",
+            tag: "BURGER DEL MES",
             price: "8.00€",
-            desc: "Carne smash seleccionada 100% vacuno, cuádruple ración de bacon crujiente a la plancha, queso fundente, tomate fresco, lechuga y salsa de la casa.",
-            video: "ASSETS/loops/burger_loop_1_lam.mp4",
-            poster: "ASSETS/carne3.jpg"
+            desc: `Llega la nueva Burger del Mes a Maracena y viene dispuesta a romper esquemas. Si buscabas la combinación perfecta entre lo clásico y lo premium, deja de buscar.
+
+Checkea lo que lleva esta joya:
+• Pan Potato Roll de Juanito Baker.
+• Doble Ternera Smash (el sello de la casa).
+• Cebolla caramelizada.
+• Bacon súper crujiente.
+• Salsa Deluxe & Doble Cheddar.
+
+Solo durante el mes de ABRIL por 8€.`,
+            video: "ASSETS/loops/burger_loop_1_lam.mp4"
         },
         {
             id: "crispy-chicken",
@@ -33,8 +40,7 @@ const HALO_DATA = {
             tag: "POLLO ULTRA CRUJIENTE",
             price: "8.00€",
             desc: "Contramuslo de pollo macerado 24h con rebozado extra crujiente dorado, queso gouda fundido, lechuga romana, tomate de la huerta y salsa especial.",
-            video: "ASSETS/loops/burger_loop_3_lam.mp4",
-            poster: "ASSETS/carne.jpg"
+            video: "ASSETS/loops/burger_loop_3_lam.mp4"
         }
     ],
 
